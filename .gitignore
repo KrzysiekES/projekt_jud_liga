@@ -1,0 +1,10 @@
+.classpath
+.path
+*.path
+*.classpath
+.project
+*.project
+.gitignore.swp
+bin
+
+
