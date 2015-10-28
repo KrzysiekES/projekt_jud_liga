@@ -3,10 +3,10 @@ package LigaPilkarska;
 public class Pilkarz {
 	
 	private int id=1;
+	private int idKlubu;
 	private String imie;
 	private String nazwisko;
 	private String pozycja;
-	private String klub;
 	
 	//Setters & Getters
 	public int getId() {
@@ -33,26 +33,26 @@ public class Pilkarz {
 	public void setPozycja(String pozycja) {
 		this.pozycja = pozycja;
 	}
-	public String getKlub() {
-		return klub;
-	}
-	public void setKlub(String klub) {
-		this.klub = klub;
-	}
-	
+
 	//Konstruktor
-	public Pilkarz (int id, String imie, String nazwisko, String pozycja, String klub){
+	public Pilkarz (int id,int idKlubu, String imie, String nazwisko, String pozycja){
 		this.setId(id);
+		this.setIdKlubu(idKlubu);
 		this.setImie(imie);
 		this.setNazwisko(nazwisko);
 		this.setPozycja(pozycja);
-		this.setKlub(klub);
 	}
 	//info o pilkarzu
 	public void PracownikInfo() {
-		String Info = "id: "+id+" Imie : " + imie + "   nazwisko : " + nazwisko + "    pozycja : "
-				+ pozycja + "  klub: " + klub;
+		String Info = "id: "+id + "id klubu: " + idKlubu + " Imie : " + imie + "   nazwisko : " + nazwisko + "    pozycja : "
+				+ pozycja ;
 		System.out.println(Info);
+	}
+	public int getIdKlubu() {
+		return idKlubu;
+	}
+	public void setIdKlubu(int idKlubu) {
+		this.idKlubu = idKlubu;
 	}
 	
 	
