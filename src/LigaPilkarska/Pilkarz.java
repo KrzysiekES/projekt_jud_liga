@@ -43,7 +43,7 @@ public class Pilkarz {
 		this.setPozycja(pozycja);
 	}
 	//info o pilkarzu
-	public void PracownikInfo() {
+	public void PilkarzInfo() {
 		String Info = "id: "+id + "id klubu: " + idKlubu + " Imie : " + imie + "   nazwisko : " + nazwisko + "    pozycja : "
 				+ pozycja ;
 		System.out.println(Info);

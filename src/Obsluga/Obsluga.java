@@ -1,15 +1,19 @@
 package Obsluga;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import LigaPilkarska.Pilkarz;
 public class Obsluga {
 	
 
 	int wybor;		//Zmienna do Scannera
 	Scanner wprowadz = new Scanner(System.in);
 	int koniec = 1;// zmienna do zamykania programu
-	
-	
+	int liczbaPilkarzy =0;
+	int idPilk =1;
+	ArrayList<Pilkarz> Pilkarze = new ArrayList<Pilkarz>();
 	public static void main(String[] args) {
 		
 		Obsluga obsluga = new Obsluga(); // Klasa do pobrania zmiennych
@@ -28,13 +32,12 @@ public class Obsluga {
 			}
 			//Menu 
 			switch(obsluga.wybor){
-				case 1: {
-					System.out.println("menu 1");
+				case 1: { //Wyœwietlanie Pilkarzy
+					obslugaMetody.WyswietlPilkarzy();
 					break;
 				}
 				case 2: {
-				
-				
+					obslugaMetody.DodaniePilkarza();
 				}
 				case 3: {
 				
