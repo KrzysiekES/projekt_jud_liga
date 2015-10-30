@@ -60,6 +60,10 @@ public class Obsluga {
 					obslugaMetody.UsunKlub();
 					break;
 				}
+				case 7: {
+					obslugaMetody.WyswietlZawodnikowWKlubie();
+					break;
+				}
 			}
 		}
 	}

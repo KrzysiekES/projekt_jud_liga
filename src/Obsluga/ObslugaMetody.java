@@ -17,7 +17,7 @@ public class ObslugaMetody {
 		System.out.println("4.Wyœwietl wszystkie Kluby");
 		System.out.println("5.Dodaj klub");
 		System.out.println("6.Usuñ Klub");
-		System.out.println("7.");
+		System.out.println("7.Wyœwietl zawodników z danego klubu");
 		System.out.println("8.");
 		System.out.println("9.");
 		System.out.println("0.Wyjscie");
@@ -37,21 +37,36 @@ public class ObslugaMetody {
 			String imie;
 			String nazwisko;
 			String pozycja;	
+			if(obsluga.Kluby.size()==0){
+				System.out.println("Najpierw dodaj Klub zanim dodasz pilkarza !");
+				
+			}else {
+			WyswietlKluby();
 			System.out.println("Podaj id Klubu: ");
-				idKlubu = wpr.nextInt();
-			System.out.println("Podaj imiê pilkarza: ");
-				imie = wpr.next();
-			System.out.println("Podaj nazwisko");
-				nazwisko = wpr.next();
-			System.out.println("Podaj pozycje");
-				pozycja = wpr.next();
-			// Wprowadzanie pilkarza
-			obsluga.Pilkarze.add(new Pilkarz(obsluga.idPilk, idKlubu, imie, nazwisko, pozycja));
-			obsluga.liczbaPilkarzy++;
-			obsluga.idPilk++;
+			idKlubu = wpr.nextInt();
+		 
+		    	if(idKlubu >= obsluga.idKlub){
+		    		System.out.println("Zle podane ID");
+		    	}
+		    	else{
+		    		System.out.println("Podaj imiê pilkarza: ");
+					imie = wpr.next();
+					System.out.println("Podaj nazwisko");
+					nazwisko = wpr.next();
+					System.out.println("Podaj pozycje");
+					pozycja = wpr.next();
+					// Wprowadzanie pilkarza
+					obsluga.Pilkarze.add(new Pilkarz(obsluga.idPilk, idKlubu, imie, nazwisko, pozycja));
+					obsluga.liczbaPilkarzy++;
+					obsluga.idPilk++;
+		    	}
+			}
 		}catch(InputMismatchException ex) {
             System.err.println("Zle podana wartosc");
         }
+		
+		
+	
 	}
 	public void UsunPilkarza() {
 		int sprawdzanie; 
@@ -84,7 +99,7 @@ public class ObslugaMetody {
 			// Wprowadzanie klubu
 			obsluga.Kluby.add(new Klub(obsluga.idKlub, nazwa, rokZalozenia, barwy));
 			obsluga.liczbaKlubow++; 
-			obsluga.idPilk++; 
+			obsluga.idKlub++; 
 		}catch(InputMismatchException ex) {
             System.err.println("Zle podana wartosc");
         }
@@ -93,10 +108,20 @@ public class ObslugaMetody {
 		int sprawdzanie; 
 		System.out.println("Podaj id Klubu,ktory chcesz usunac : ");
 		sprawdzanie = wpr.nextInt();
-		// jesli podany jest poprawny nr id pilkarza,to zostaje on usuniety
 		obsluga.Kluby.remove(sprawdzanie - 1);
 		obsluga.liczbaKlubow--;
 	}
 	
+	public void WyswietlZawodnikowWKlubie() {
+		int x;
+		WyswietlKluby();
+		System.out.println("Którego klubu zawodników chcesz zobaczyc ? ");
+	    x = wpr.nextInt();
+	    for (int i = 0; i < obsluga.Pilkarze.size(); i++) {
+	    	if(obsluga.Pilkarze.get(i).getIdKlubu() == x){
+	    		obsluga.Pilkarze.get(i).PilkarzInfo();
+	    	}
+		}
+	}
 	
 }
