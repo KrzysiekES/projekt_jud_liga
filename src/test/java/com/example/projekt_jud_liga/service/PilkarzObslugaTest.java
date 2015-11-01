@@ -1,4 +1,4 @@
-package com.example.jdbcdemo.service;
+package com.example.projekt_jud_liga.service;
 
 import static org.junit.Assert.*;
 

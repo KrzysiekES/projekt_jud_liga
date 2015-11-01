@@ -15,6 +15,12 @@ public class Klub {
 		this.setBarwy(barwy);
 	}
 	
+	public Klub( String nazwa, int rokZalozenia, String barwy ){
+		this.setNazwa(nazwa);
+		this.getRokZalozenia();
+		this.setBarwy(barwy);
+	}
+	
 	//Setters & Getters
 	public int getId() {
 		return id;
