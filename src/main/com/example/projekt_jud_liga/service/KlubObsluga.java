@@ -63,7 +63,7 @@ public class KlubObsluga {
 	
 	public void wyczyscKluby() {
 		try {
-			pokazWszystkieKlubyStmt.executeUpdate();
+			usunKlubStmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
