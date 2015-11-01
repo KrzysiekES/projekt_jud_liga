@@ -1,4 +1,4 @@
-package com.example.projekt_jud_liga.service;
+package test.java.com.example.projekt_jud_liga.service;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.example.projekt_jud_liga.domain.Pilkarz;
+import main.com.example.projekt_jud_liga.domain.Pilkarz;
+import main.com.example.projekt_jud_liga.service.PilkarzObsluga;
+
 
 public class PilkarzObslugaTest {
 	
@@ -25,13 +27,13 @@ public class PilkarzObslugaTest {
 	@Test
 	public void sprawdzDodawanie(){
 		
-		Pilkarz pilkarz = new Pilkarz(ID_KLUBU, IMIE, NAZWISKO);
+		Pilkarz pilkarz = new Pilkarz(ID_KLUBU, IMIE, NAZWISKO,POZYCJA);
 		
 		pilkarzObsluga.wyczyscPilkarzy();
 		assertEquals(1,pilkarzObsluga.dodajPilkarza(pilkarz));
 		
 		List<Pilkarz> pilkarze = pilkarzObsluga.pokazWszystkichPilkarzy();
-		Pilkarz pilkarzRetrieved = pilkarz.get(0);
+		Pilkarz pilkarzRetrieved = pilkarze.get(0);
 		
 		assertEquals(ID_KLUBU, pilkarzRetrieved.getIdKlubu());
 		assertEquals(IMIE, pilkarzRetrieved.getImie());

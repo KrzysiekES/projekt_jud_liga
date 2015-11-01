@@ -1,5 +1,5 @@
 
-package com.example.projekt_jud_liga.service;
+package main.com.example.projekt_jud_liga.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.projekt_jud_liga.domain.Pilkarz;
+import main.com.example.projekt_jud_liga.domain.Pilkarz;
 
 public class PilkarzObsluga {
 	 private Connection connection;
@@ -59,11 +59,11 @@ public class PilkarzObsluga {
 			}
 	    }
 	    
-		Connection getConnection() {
+		public Connection getConnection() {
 			return connection;
 		}
 		
-		void wyczyscPilkarzy() {
+		public void wyczyscPilkarzy() {
 			try {
 				pokazWszystkichPilkarzyStmt.executeUpdate();
 			} catch (SQLException e) {
@@ -99,7 +99,7 @@ public class PilkarzObsluga {
 					p.setIdKlubu(rs.getInt("idKlubu"));
 					p.setImie(rs.getString("imie"));
 					p.setNazwisko(rs.getString("nazwisko"));
-					p.setPozycja(rs.getString("pozycja"))
+					p.setPozycja(rs.getString("pozycja"));
 					pilkarze.add(p);
 				}
 

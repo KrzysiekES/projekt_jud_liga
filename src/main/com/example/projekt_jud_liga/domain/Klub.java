@@ -1,3 +1,5 @@
+package main.com.example.projekt_jud_liga.domain;
+
 
 public class Klub {
 	private static int KlubID = 0;
@@ -21,6 +23,10 @@ public class Klub {
 		this.setBarwy(barwy);
 	}
 	
+	public Klub() {
+		super();
+	}
+
 	//Setters & Getters
 	public int getId() {
 		return id;

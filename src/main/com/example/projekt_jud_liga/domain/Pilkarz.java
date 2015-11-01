@@ -1,3 +1,5 @@
+package main.com.example.projekt_jud_liga.domain;
+
 
 public class Pilkarz {
 	 private static int PilkarzID = 0;
@@ -47,6 +49,10 @@ public class Pilkarz {
 		this.setImie(imie);
 		this.setNazwisko(nazwisko);
 		this.setPozycja(pozycja);
+	}
+	public Pilkarz() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	//info o pilkarzu
 	public void PilkarzInfo() {

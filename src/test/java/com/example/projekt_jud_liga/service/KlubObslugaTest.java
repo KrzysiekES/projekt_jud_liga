@@ -1,4 +1,4 @@
-package com.example.projekt_jud_liga.service;
+package test.java.com.example.projekt_jud_liga.service;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.example.projekt_jud_liga.domain.Klub;
-import com.example.projekt_jud_liga.service.KlubObsluga;
+import main.com.example.projekt_jud_liga.domain.Klub;
+import main.com.example.projekt_jud_liga.service.KlubObsluga;
 public class KlubObslugaTest {
 	
 	KlubObsluga klubObsluga = new KlubObsluga();
@@ -29,11 +29,11 @@ public class KlubObslugaTest {
 		assertEquals(1,klubObsluga.dodajKlub(klub));
 		
 		List<Klub> kluby = klubObsluga.pokazWszystkieKluby();
-		Klub klubRetrieved = klub.get(0);
+		Klub klubRetrieved = kluby.get(0);
 		
 		assertEquals(NAZWA, klubRetrieved.getNazwa());
 		assertEquals(ROK_ZALOZENIA, klubRetrieved.getRokZalozenia());
-		assertEquals(BARWY, pilkarzRetrieved.getBarwy());
+		assertEquals(BARWY, klubRetrieved.getBarwy());
 		
 	}
 
