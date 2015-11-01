@@ -6,5 +6,7 @@
 *.project
 .gitignore.swp
 bin
+.settings/
+jar_files/
 
 
