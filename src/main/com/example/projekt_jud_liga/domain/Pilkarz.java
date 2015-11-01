@@ -42,6 +42,12 @@ public class Pilkarz {
 		this.setNazwisko(nazwisko);
 		this.setPozycja(pozycja);
 	}
+	public Pilkarz (int idKlubu, String imie, String nazwisko, String pozycja){
+		this.setIdKlubu(idKlubu);
+		this.setImie(imie);
+		this.setNazwisko(nazwisko);
+		this.setPozycja(pozycja);
+	}
 	//info o pilkarzu
 	public void PilkarzInfo() {
 		String Info = "id: "+id + "id klubu: " + idKlubu + " Imie : " + imie + "   nazwisko : " + nazwisko + "    pozycja : "
