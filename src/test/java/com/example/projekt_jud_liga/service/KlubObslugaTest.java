@@ -7,9 +7,8 @@ import java.util.List;
 import org.junit.Test;
 
 import com.example.projekt_jud_liga.domain.Klub;
-
+import com.example.projekt_jud_liga.service.KlubObsluga;
 public class KlubObslugaTest {
-	
 	
 	KlubObsluga klubObsluga = new KlubObsluga();
 	private final static String NAZWA = "Lechia";
