@@ -1,7 +1,6 @@
 package test.java.com.example.projekt_jud_liga.service;
 
 import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
@@ -14,6 +13,7 @@ public class PilkarzObslugaTest {
 	
 	
 	PilkarzObsluga pilkarzObsluga = new PilkarzObsluga();
+
 	private final static int ID_KLUBU = 1;
 	private final static String IMIE = "TOMEK";
 	private final static String NAZWISKO = "NOWAK";
@@ -27,7 +27,7 @@ public class PilkarzObslugaTest {
 	@Test
 	public void sprawdzDodawanie(){
 		
-		Pilkarz pilkarz = new Pilkarz(ID_KLUBU, IMIE, NAZWISKO,POZYCJA);
+		Pilkarz pilkarz = new Pilkarz( ID_KLUBU, IMIE, NAZWISKO,POZYCJA);
 		
 		pilkarzObsluga.wyczyscPilkarzy();
 		assertEquals(1,pilkarzObsluga.dodajPilkarza(pilkarz));
@@ -35,6 +35,7 @@ public class PilkarzObslugaTest {
 		List<Pilkarz> pilkarze = pilkarzObsluga.pokazWszystkichPilkarzy();
 		Pilkarz pilkarzRetrieved = pilkarze.get(0);
 		
+
 		assertEquals(ID_KLUBU, pilkarzRetrieved.getIdKlubu());
 		assertEquals(IMIE, pilkarzRetrieved.getImie());
 		assertEquals(NAZWISKO, pilkarzRetrieved.getNazwisko());

@@ -11,6 +11,7 @@ import main.com.example.projekt_jud_liga.service.KlubObsluga;
 public class KlubObslugaTest {
 	
 	KlubObsluga klubObsluga = new KlubObsluga();
+	
 	private final static String NAZWA = "Lechia";
 	private final static int ROK_ZALOZENIA = 1922;
 	private final static String BARWY = "Bialo-Zielone";
@@ -23,7 +24,7 @@ public class KlubObslugaTest {
 	@Test
 	public void sprawdzDodawanie(){
 		
-		Klub klub = new Klub(NAZWA, ROK_ZALOZENIA, BARWY);
+		Klub klub = new Klub( NAZWA, ROK_ZALOZENIA, BARWY);
 		
 		klubObsluga.wyczyscKluby();
 		assertEquals(1,klubObsluga.dodajKlub(klub));

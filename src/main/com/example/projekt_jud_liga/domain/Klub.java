@@ -2,22 +2,16 @@ package main.com.example.projekt_jud_liga.domain;
 
 
 public class Klub {
-	private static int KlubID = 0;
 	
-	private int id;
+	private long id;
+	
 	private String nazwa;
 	private int rokZalozenia;
 	private String barwy;
 	
 	//Kontruktor
-	public Klub( int id, String nazwa, int rokZalozenia, String barwy ){
-		this.id=++KlubID;
-		this.setNazwa(nazwa);
-		this.getRokZalozenia();
-		this.setBarwy(barwy);
-	}
-	
 	public Klub( String nazwa, int rokZalozenia, String barwy ){
+		super();
 		this.setNazwa(nazwa);
 		this.getRokZalozenia();
 		this.setBarwy(barwy);
@@ -28,10 +22,10 @@ public class Klub {
 	}
 
 	//Setters & Getters
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getNazwa() {

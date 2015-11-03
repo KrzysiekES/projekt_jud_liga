@@ -2,19 +2,19 @@ package main.com.example.projekt_jud_liga.domain;
 
 
 public class Pilkarz {
-	 private static int PilkarzID = 0;
 	
-	private int id;
+	private long id;
+	
 	private int idKlubu;
 	private String imie;
 	private String nazwisko;
 	private String pozycja;
 	
 	//Setters & Getters
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getImie() {
@@ -38,18 +38,22 @@ public class Pilkarz {
 
 	//Konstruktor
 	public Pilkarz (int id,int idKlubu, String imie, String nazwisko, String pozycja){
-		this.id= ++PilkarzID;
+		this.setId(id);
 		this.setIdKlubu(idKlubu);
 		this.setImie(imie);
 		this.setNazwisko(nazwisko);
 		this.setPozycja(pozycja);
 	}
+	
 	public Pilkarz (int idKlubu, String imie, String nazwisko, String pozycja){
+		super();
 		this.setIdKlubu(idKlubu);
 		this.setImie(imie);
 		this.setNazwisko(nazwisko);
 		this.setPozycja(pozycja);
 	}
+	
+	
 	public Pilkarz() {
 		super();
 		// TODO Auto-generated constructor stub
