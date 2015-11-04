@@ -6,14 +6,12 @@ public class Klub {
 	private long id;
 	
 	private String nazwa;
-	private int rokZalozenia;
 	private String barwy;
 	
 	//Kontruktor
-	public Klub( String nazwa, int rokZalozenia, String barwy ){
+	public Klub( String nazwa, String barwy ){
 		super();
 		this.setNazwa(nazwa);
-		this.getRokZalozenia();
 		this.setBarwy(barwy);
 	}
 	
@@ -34,12 +32,6 @@ public class Klub {
 	public void setNazwa(String nazwa) {
 		this.nazwa = nazwa;
 	}
-	public int getRokZalozenia() {
-		return rokZalozenia;
-	}
-	public void setRokZalozenia(int rokZalozenia) {
-		this.rokZalozenia = rokZalozenia;
-	}
 	public String getBarwy() {
 		return barwy;
 	}
@@ -49,7 +41,7 @@ public class Klub {
 	
 	//info o Klubie
 	public void KlubInfo() {
-		String Info = "id: "+ id + " nazwa: " + "rok za³o¿enia: " + " barwy: " + barwy;
+		String Info = "id: "+ id + " nazwa: " + " barwy: " + barwy;
 		System.out.println(Info);
 	}
 

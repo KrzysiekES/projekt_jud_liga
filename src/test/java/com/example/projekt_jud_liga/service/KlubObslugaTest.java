@@ -13,7 +13,6 @@ public class KlubObslugaTest {
 	KlubObsluga klubObsluga = new KlubObsluga();
 	
 	private final static String NAZWA = "Lechia";
-	private final static int ROK_ZALOZENIA = 1922;
 	private final static String BARWY = "Bialo-Zielone";
 	
 	@Test
@@ -24,7 +23,7 @@ public class KlubObslugaTest {
 	@Test
 	public void sprawdzDodawanie(){
 		
-		Klub klub = new Klub( NAZWA, ROK_ZALOZENIA, BARWY);
+		Klub klub = new Klub( NAZWA, BARWY);
 		
 		klubObsluga.wyczyscKluby();
 		assertEquals(1,klubObsluga.dodajKlub(klub));
@@ -33,10 +32,35 @@ public class KlubObslugaTest {
 		Klub klubRetrieved = kluby.get(0);
 		
 		assertEquals(NAZWA, klubRetrieved.getNazwa());
-		assertEquals(ROK_ZALOZENIA, klubRetrieved.getRokZalozenia());
 		assertEquals(BARWY, klubRetrieved.getBarwy());
 		
 	}
+	
+    @Test
+    public void sprawdzOdswiezanieDanych()
+    {
+    	
+    	Klub klub = new Klub (NAZWA, BARWY);
+    	klubObsluga.wyczyscKluby();
+    	assertEquals(1,klubObsluga.dodajKlub(klub));
+    	
+		List<Klub> kluby = klubObsluga.pokazWszystkieKluby();
+		Klub klubRetrieved = kluby.get(0);
+
+		klubRetrieved.setNazwa("Bayern");
+		klubRetrieved.setBarwy("czarne");
+
+		
+		assertEquals(1, klubObsluga.odswiezDane(klub));
+		
+		List<Klub> kluby2 = klubObsluga.pokazWszystkieKluby();
+		Klub klubRetrieved2 = kluby2.get(0);
+
+
+		
+		assertEquals("Bayern", klubRetrieved2.getNazwa());
+		assertEquals("czarne", klubRetrieved2.getBarwy()); 
+    }
 
 }
 
