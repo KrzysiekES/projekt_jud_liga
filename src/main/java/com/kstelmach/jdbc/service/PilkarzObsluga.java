@@ -25,7 +25,8 @@ public class PilkarzObsluga {
 	    private PreparedStatement pokazWszystkichPilkarzyStmt;
 		private PreparedStatement usunJednegoPilkarzaStmt;
 		private PreparedStatement zmienDanePilkarzaStmt;
-		
+	    private PreparedStatement pokazPilkarzyPoIdKlubuStmt;
+	    
 	    private Statement statement;
 	    
 	    
@@ -58,7 +59,8 @@ public class PilkarzObsluga {
 						.prepareStatement("SELECT id, idKlubu, imie, nazwisko, pozycja FROM Pilkarz");
 				zmienDanePilkarzaStmt = connection
 						.prepareStatement("UPDATE Pilkarz set idKlubu = ?, imie = ?, nazwisko = ?, pozycja = ? where id = ?");
-
+				pokazPilkarzyPoIdKlubuStmt = connection
+						.prepareStatement("SELECT * FROM Pilkarz WHERE idKlubu = ?");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -142,6 +144,26 @@ public class PilkarzObsluga {
 			}
 			return count;
 		}
-		
+		  public Pilkarz pokazPilkarzyPoIdKlubu(Pilkarz pilkarz)
+		    {
+		        try
+		        {
+		        	pokazPilkarzyPoIdKlubuStmt.setInt(1, pilkarz.getIdKlubu());
+		            ResultSet rs = pokazPilkarzyPoIdKlubuStmt.executeQuery();
+
+		            while (rs.next())
+		            {
+		                pilkarz = new Pilkarz(rs.getInt("idKlubu"), rs.getString("imie"), rs.getString("nazwisko"),rs.getString("pozycja"));
+		                pilkarz.setId(rs.getInt("id"));
+		                return pilkarz;
+		            }
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+
+		        return null;
+		    }
 		
 }

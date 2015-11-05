@@ -20,7 +20,6 @@ public class PilkarzObslugaTest {
 	private final static String POZYCJA = "BRAMKARZ";
 	
 	
-	private final static int ZMIANA_ID_KLUBU = 1;
 	private final static String ZMIANA_IMIE = "Artur";
 	private final static String ZMIANA_NAZWISKO = "Kowalski";
 	private final static String ZMIANA_POZYCJA = "obronca";
@@ -86,6 +85,23 @@ public class PilkarzObslugaTest {
 		assertEquals(POZYCJA, pilkarzRetrieved2.getPozycja());
 		
 	}
+	   @Test
+	    public void szukajPilkarzaWKlubie()
+	    {
+			Pilkarz pilkarz = new Pilkarz (ID_KLUBU, IMIE, NAZWISKO,POZYCJA);
+			pilkarzObsluga.wyczyscPilkarzy();
+			Pilkarz pilkarzRetrieved = null;
+			assertEquals(1,pilkarzObsluga.dodajPilkarza(pilkarz));
+			
+			pilkarz = pilkarzObsluga.pokazWszystkichPilkarzy().get(0);
+			pilkarzRetrieved = pilkarzObsluga.pokazPilkarzyPoIdKlubu(pilkarz);
+			
+
+	        assertEquals(pilkarz.getId(), pilkarzRetrieved.getId());
+	        assertEquals(pilkarz.getImie(), pilkarzRetrieved.getImie());
+	        assertEquals(pilkarz.getNazwisko(), pilkarzRetrieved.getNazwisko());
+	        assertEquals(pilkarz.getPozycja(), pilkarzRetrieved.getPozycja());
+	    }
 
 }
 

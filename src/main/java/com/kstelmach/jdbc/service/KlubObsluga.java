@@ -56,6 +56,7 @@ public class KlubObsluga {
 					.prepareStatement("SELECT id, nazwa, barwy FROM Klub");
 			zmienDaneKlubuStmt = connection
 					.prepareStatement("UPDATE Klub SET nazwa = ?, barwy = ? WHERE id = ?");
+	
 
 		} catch (SQLException e) {
 			e.printStackTrace();
