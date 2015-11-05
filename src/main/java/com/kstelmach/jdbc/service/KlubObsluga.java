@@ -1,4 +1,4 @@
-package main.com.example.projekt_jud_liga.service;
+package main.java.com.kstelmach.jdbc.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.com.example.projekt_jud_liga.domain.Klub;
+import main.java.com.kstelmach.jdbc.domain.Klub;
 
 public class KlubObsluga {
 	private Connection connection;

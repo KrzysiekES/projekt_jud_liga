@@ -1,4 +1,4 @@
-package test.java.com.example.projekt_jud_liga.service;
+package test;
 
 import static org.junit.Assert.*;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import main.com.example.projekt_jud_liga.domain.Klub;
+import main.java.com.kstelmach.jdbc.domain.Klub;
 
-import main.com.example.projekt_jud_liga.service.KlubObsluga;
+import main.java.com.kstelmach.jdbc.service.KlubObsluga;
 public class KlubObslugaTest {
 	
 	KlubObsluga klubObsluga = new KlubObsluga();

@@ -1,4 +1,4 @@
-package main.com.example.projekt_jud_liga.domain;
+package main.java.com.kstelmach.jdbc.domain;
 
 
 public class Klub {
