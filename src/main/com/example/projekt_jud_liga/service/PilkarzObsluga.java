@@ -23,7 +23,9 @@ public class PilkarzObsluga {
 	 	private PreparedStatement dodajPilkarzaStmt; 
 	    private PreparedStatement usunPilkarzaStmt;
 	    private PreparedStatement pokazWszystkichPilkarzyStmt;
-	    
+		private PreparedStatement usunJednegoPilkarzaStmt;
+		private PreparedStatement zmienDanePilkarzaStmt;
+		
 	    private Statement statement;
 	    
 	    
@@ -50,8 +52,12 @@ public class PilkarzObsluga {
 						.prepareStatement("INSERT INTO Pilkarz (idKlubu, imie, nazwisko, pozycja) VALUES ( ?, ?, ?, ?)");
 				usunPilkarzaStmt = connection
 						.prepareStatement("DELETE FROM Pilkarz");
+				usunJednegoPilkarzaStmt = connection
+						.prepareStatement ("DELETE FROM Pilkarz WHERE id = ?");
 				pokazWszystkichPilkarzyStmt = connection
 						.prepareStatement("SELECT id, idKlubu, imie, nazwisko, pozycja FROM Pilkarz");
+				zmienDanePilkarzaStmt = connection
+						.prepareStatement("UPDATE Pilkarz set idKlubu = ?, imie = ?, nazwisko = ?, pozycja = ? where id = ?");
 
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -73,7 +79,7 @@ public class PilkarzObsluga {
 		public int dodajPilkarza(Pilkarz pilkarz) {
 			int count = 0;
 			try {
-
+				
 				dodajPilkarzaStmt.setInt(1, pilkarz.getIdKlubu());
 				dodajPilkarzaStmt.setString(2, pilkarz.getImie());
 				dodajPilkarzaStmt.setString(3, pilkarz.getNazwisko());
@@ -107,6 +113,34 @@ public class PilkarzObsluga {
 				e.printStackTrace();
 			}
 			return pilkarze;
+		}
+		
+		public int usunJednegoPilkarza(Pilkarz pilkarz)
+		{
+			int count = 0;
+			try {
+				usunJednegoPilkarzaStmt.setLong(1, pilkarz.getId());
+
+				count = usunJednegoPilkarzaStmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return count;
+			
+		}
+		public int zmienDanePilkarza(Pilkarz pilkarz){
+			int count = 3;
+			try{
+				//zmienDanePilkarzaStmt.setInt(2, pilkarz.getIdKlubu());
+				zmienDanePilkarzaStmt.setString(3, pilkarz.getImie());
+				zmienDanePilkarzaStmt.setString(3, pilkarz.getNazwisko());
+				zmienDanePilkarzaStmt.setString(4, pilkarz.getPozycja());
+
+				count = zmienDanePilkarzaStmt.executeUpdate();
+			}catch(SQLException e){
+				e.printStackTrace();
+			}
+			return count;
 		}
 		
 		

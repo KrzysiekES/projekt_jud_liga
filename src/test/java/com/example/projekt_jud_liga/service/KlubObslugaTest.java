@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Test;
 
 import main.com.example.projekt_jud_liga.domain.Klub;
+
 import main.com.example.projekt_jud_liga.service.KlubObsluga;
 public class KlubObslugaTest {
 	
@@ -37,30 +38,36 @@ public class KlubObslugaTest {
 	}
 	
     @Test
-    public void sprawdzOdswiezanieDanych()
+    public void zmianaDanych()
     {
-    	
     	Klub klub = new Klub (NAZWA, BARWY);
     	klubObsluga.wyczyscKluby();
-    	assertEquals(1,klubObsluga.dodajKlub(klub));
     	
+    	assertEquals(1,klubObsluga.dodajKlub(klub));
 		List<Klub> kluby = klubObsluga.pokazWszystkieKluby();
+		
 		Klub klubRetrieved = kluby.get(0);
-
 		klubRetrieved.setNazwa("Bayern");
 		klubRetrieved.setBarwy("czarne");
-
 		
-		assertEquals(1, klubObsluga.odswiezDane(klub));
-		
+		assertEquals(1, klubObsluga.zmienDane(klub));
 		List<Klub> kluby2 = klubObsluga.pokazWszystkieKluby();
 		Klub klubRetrieved2 = kluby2.get(0);
-
-
-		
-		assertEquals("Bayern", klubRetrieved2.getNazwa());
-		assertEquals("czarne", klubRetrieved2.getBarwy()); 
+		assertEquals(NAZWA, klubRetrieved2.getNazwa());
+		assertEquals(BARWY, klubRetrieved2.getBarwy()); 
     }
+    
+    
+	@Test
+	public void usuwanieJednego()	
+	{
+		Klub klub = new Klub (NAZWA, BARWY);
+		klubObsluga.wyczyscKluby();
+		assertEquals(1,klubObsluga.dodajKlub(klub));
+		List<Klub> kluby = klubObsluga.pokazWszystkieKluby();
+		Klub klubRetrieved = kluby.get(0);
+		assertEquals(1, klubObsluga.usunJedenKlub(klubRetrieved));
+	}
 
 }
 
