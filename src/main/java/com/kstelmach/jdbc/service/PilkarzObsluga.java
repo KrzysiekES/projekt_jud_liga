@@ -133,8 +133,8 @@ public class PilkarzObsluga {
 			try{
 				//zmienDanePilkarzaStmt.setInt(2, pilkarz.getIdKlubu());
 				zmienDanePilkarzaStmt.setString(3, pilkarz.getImie());
-				zmienDanePilkarzaStmt.setString(3, pilkarz.getNazwisko());
-				zmienDanePilkarzaStmt.setString(4, pilkarz.getPozycja());
+				zmienDanePilkarzaStmt.setString(4, pilkarz.getNazwisko());
+				zmienDanePilkarzaStmt.setString(5, pilkarz.getPozycja());
 
 				count = zmienDanePilkarzaStmt.executeUpdate();
 			}catch(SQLException e){
