@@ -3,7 +3,7 @@ package main.java.com.kstelmach.jdbc.domain;
 
 public class Klub {
 	
-	private long id;
+	private int id;
 	
 	private String nazwa;
 	private String barwy;
@@ -20,10 +20,10 @@ public class Klub {
 	}
 
 	//Setters & Getters
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNazwa() {

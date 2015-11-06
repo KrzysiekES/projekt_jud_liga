@@ -1,0 +1,4 @@
+main/java/com/kstelmach/jdbc/domain/Klub.class
+main/java/com/kstelmach/jdbc/service/PilkarzObsluga.class
+main/java/com/kstelmach/jdbc/domain/Pilkarz.class
+main/java/com/kstelmach/jdbc/service/KlubObsluga.class

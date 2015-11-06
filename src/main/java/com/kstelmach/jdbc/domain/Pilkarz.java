@@ -3,7 +3,7 @@ package main.java.com.kstelmach.jdbc.domain;
 
 public class Pilkarz {
 	
-	private long id;
+	private int id;
 	
 	private int idKlubu;
 	private String imie;
@@ -11,10 +11,10 @@ public class Pilkarz {
 	private String pozycja;
 	
 	//Setters & Getters
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getImie() {
