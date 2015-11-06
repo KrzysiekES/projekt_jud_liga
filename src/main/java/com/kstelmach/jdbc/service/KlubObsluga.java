@@ -21,7 +21,6 @@ public class KlubObsluga {
  	private PreparedStatement dodajKlubStmt; 
     private PreparedStatement usunKlubStmt;
     private PreparedStatement pokazWszystkieKlubyStmt;
-    private PreparedStatement zmienDaneKlubuStmt;
     private PreparedStatement usunJedenKlubStmt;
     
     private Statement statement;
@@ -54,8 +53,7 @@ public class KlubObsluga {
 					.prepareStatement ("DELETE FROM Klub WHERE id = ?");
 			pokazWszystkieKlubyStmt = connection
 					.prepareStatement("SELECT id, nazwa, barwy FROM Klub");
-			zmienDaneKlubuStmt = connection
-					.prepareStatement("UPDATE Klub SET nazwa = ?, barwy = ? WHERE id = ?");
+
 	
 
 		} catch (SQLException e) {
@@ -110,22 +108,7 @@ public class KlubObsluga {
 		return kluby;
 	}
 	
-    public int zmienDane(Klub klub)
-    {
-        int count = 1;
-        try
-        {
-        	zmienDaneKlubuStmt.setString(1, klub.getNazwa());
-        	zmienDaneKlubuStmt.setString(2, klub.getBarwy());
-            count = zmienDaneKlubuStmt.executeUpdate();
 
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-        return count;
-    }
     
 	public int usunJedenKlub(Klub klub)
 	{

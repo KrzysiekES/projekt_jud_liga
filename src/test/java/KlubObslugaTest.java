@@ -37,25 +37,7 @@ public class KlubObslugaTest {
 		
 	}
 	
-    @Test
-    public void zmianaDanych()
-    {
-    	Klub klub = new Klub (NAZWA, BARWY);
-    	klubObsluga.wyczyscKluby();
-    	
-    	assertEquals(1,klubObsluga.dodajKlub(klub));
-		List<Klub> kluby = klubObsluga.pokazWszystkieKluby();
-		
-		Klub klubRetrieved = kluby.get(0);
-		klubRetrieved.setNazwa("Bayern");
-		klubRetrieved.setBarwy("czarne");
-		
-		assertEquals(1, klubObsluga.zmienDane(klub));
-		List<Klub> kluby2 = klubObsluga.pokazWszystkieKluby();
-		Klub klubRetrieved2 = kluby2.get(0);
-		assertEquals(NAZWA, klubRetrieved2.getNazwa());
-		assertEquals(BARWY, klubRetrieved2.getBarwy()); 
-    }
+
     
     
 	@Test
